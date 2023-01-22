@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default () => {
+export default ({onChoice}) => {
   const [cast, setCast] = useState([]);
 
   async function fetchCast() {
@@ -19,9 +19,18 @@ export default () => {
       gap: `1rem`,
       marginBottom: '1rem'
     }}>
+{/* 
+  
+      <ul>
+        {
+          cast.map( (member, index) => (<li>{member.name}, {index}</li>))
+        }
+      </ul>
+ */}
       {
         cast.map(member => (
-          <a key={member.id} data-tooltip={member.name}>
+ /* We say now that when we click on an alien, we will get the info that we stayed before on the useState that we created*/
+          <a onClick= { () => onChoice(member) } key={member.id} data-tooltip={member.name}>
             <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
           </a>
         ))
