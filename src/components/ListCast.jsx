@@ -22,7 +22,10 @@ export default () => {
     }}>
 {/*We're associating the grid with the image*/}
       {cast.map(member => (
+// Next line sets a hover and everytime we pass the mouse over the figures, the name appears
+        <a key={member.id} data-tooltip={member.name}>
         <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
+        </a>
       ))
       }
     </div>
