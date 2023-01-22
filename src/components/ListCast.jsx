@@ -29,6 +29,6 @@ export default () => {
       ))
       }
     </div>
-// Onece finished our complement, we have to implement it in the App
+// Once finished our complement, we have to implement it in the App
   )
 }
