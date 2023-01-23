@@ -1,17 +1,4 @@
-import { useState, useEffect } from "react";
-
-export default ({onChoice}) => {
-  const [cast, setCast] = useState([]);
-
-  async function fetchCast() {
-    const response = await fetch('cast.json');
-    setCast(await response.json());
-  }
-
-  useEffect(() => {
-    fetchCast();
-  });
-
+export default ({cast, onChoice}) => {
   return (
     <div style={{
       display: "grid",
@@ -19,8 +6,9 @@ export default ({onChoice}) => {
       gap: `1rem`,
       marginBottom: '1rem'
     }}>
+{/*This is creating the images. Puts all the images on thw web*/}
       {
-        cast.map(member => (
+        cast.map(member => ( 
           <a onClick={ () => {onChoice(member)}} key={member.id} data-tooltip={member.name}>
             <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
           </a>
